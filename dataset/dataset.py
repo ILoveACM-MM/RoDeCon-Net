@@ -43,7 +43,7 @@ class BUSI_Datasets(Dataset):
     def __init__(self,mode):
         super().__init__()
         self.mode=mode
-        cwd='/home/xyq/Datasets'
+        cwd=os.getcwd()
         data_path_1=os.path.join(cwd,'data','BUSI','Dataset_BUSI','Dataset_BUSI_with_GT','benign')
         data_path_2=os.path.join(cwd,'data','BUSI','Dataset_BUSI','Dataset_BUSI_with_GT','malignant')
         data_path_3=os.path.join(cwd,'data','BUSI','Dataset_BUSI','Dataset_BUSI_with_GT','normal')
