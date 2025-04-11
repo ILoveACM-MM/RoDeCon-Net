@@ -438,13 +438,13 @@ class ContrastDrivenFeatureAlignmentUnit(nn.Module):
         """ Contrast-Driven Feature Aggregation """
         self.up2X = nn.Upsample(scale_factor=2, mode="bilinear", align_corners=True)
         self.cfau4 = ContrastDrivenFeatureAlignment(
-            in_channels[3], in_channels[3], scale[2],window_size=window_size, window_padding=window_padding, window_stride=window_stride)
+            in_channels[3], in_channels[3], window_size=window_size, window_padding=window_padding, window_stride=window_stride)
         self.cfau3 = ContrastDrivenFeatureAlignment(
-            in_channels[3] + in_channels[2], in_channels[2], scale[2],window_size=window_size, window_padding=window_padding, window_stride=window_stride)
+            in_channels[3] + in_channels[2], in_channels[2],window_size=window_size, window_padding=window_padding, window_stride=window_stride)
         self.cfau2 = ContrastDrivenFeatureAlignment(
-            in_channels[2] + in_channels[1], in_channels[1], scale[2],window_size=window_size, window_padding=window_padding, window_stride=window_stride)
+            in_channels[2] + in_channels[1], in_channels[1], window_size=window_size, window_padding=window_padding, window_stride=window_stride)
         self.cfau1 = ContrastDrivenFeatureAlignment(
-            in_channels[1] + in_channels[0], in_channels[0], scale[2],window_size=window_size, window_padding=window_padding, window_stride=window_stride)
+            in_channels[1] + in_channels[0], in_channels[0], window_size=window_size, window_padding=window_padding, window_stride=window_stride)
 
 
     def forward(self, f_fg,f_bg,x1,x2,x3,x4):

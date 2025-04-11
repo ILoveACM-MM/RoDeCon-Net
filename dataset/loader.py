@@ -22,7 +22,9 @@ class DATASET(Dataset):
     def __getitem__(self, index):
         """ Reading Image & Mask """
         image = cv2.imread(self.images_path[index], cv2.IMREAD_COLOR)
+        #foreground mask
         mask = cv2.imread(self.masks_path[index], cv2.IMREAD_GRAYSCALE)
+        #background mask
         background = mask.copy()
         background = 255 - background
         

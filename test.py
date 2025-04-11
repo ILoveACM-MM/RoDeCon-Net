@@ -10,9 +10,7 @@ from utils.metrics import DiceBCELoss
 torch.backends.cudnn.benchmark = True
 torch.backends.cudnn.deterministic = False
 from utils.run_train_vail import train, evaluate
-import sys
 import argparse
-sys.path.append(os.getcwd())
 from utils.utils import calculate_params_flops
 from dataset.loader import get_loader
 

@@ -9,7 +9,7 @@ TEST,TRAIN = 1,2
 class ISIC2018_Datasets(Dataset):
     def __init__(self,mode):
         super().__init__()
-        cwd='/home/xyq/Datasets'
+        cwd=os.getcwd()
         self.mode=mode
         gts_path=os.path.join(cwd,'data','ISIC2018','ISIC2018_Task1_Training_GroundTruth','ISIC2018_Task1_Training_GroundTruth')
         images_path=os.path.join(cwd,'data','ISIC2018','ISIC2018_Task1-2_Training_Input','ISIC2018_Task1-2_Training_Input')
@@ -42,8 +42,8 @@ class ISIC2018_Datasets(Dataset):
 class BUSI_Datasets(Dataset):
     def __init__(self,mode):
         super().__init__()
-        self.mode='/home/xyq/Datasets'
-        cwd=os.getcwd()
+        self.mode=mode
+        cwd='/home/xyq/Datasets'
         data_path_1=os.path.join(cwd,'data','BUSI','Dataset_BUSI','Dataset_BUSI_with_GT','benign')
         data_path_2=os.path.join(cwd,'data','BUSI','Dataset_BUSI','Dataset_BUSI_with_GT','malignant')
         data_path_3=os.path.join(cwd,'data','BUSI','Dataset_BUSI','Dataset_BUSI_with_GT','normal')
@@ -77,7 +77,6 @@ class BUSI_Datasets(Dataset):
         
         random.shuffle(self.data)
         print(len(self.data))
-        print('打乱')
         
         if mode==TRAIN:
             self.data=self.data[:624]
@@ -124,7 +123,7 @@ class Kvasir_Datasets():
 class COVID_19_Datasets(Dataset):
     def __init__(self,mode):
         super().__init__()
-        cwd='/home/xyq/Datasets'
+        cwd=os.getcwd()
         self.mode=mode
         gts_path=os.path.join(cwd,'data','COVID_19','COVID-19_Lung_Infection_train','COVID-19_Lung_Infection_train','masks')
         images_path=os.path.join(cwd,'data','COVID_19','COVID-19_Lung_Infection_train','COVID-19_Lung_Infection_train','images')
@@ -159,7 +158,7 @@ import tifffile as tiff
 class Monu_Seg_Datasets(Dataset):
     def __init__(self,mode):
         super().__init__()
-        cwd='/home/xyq/Datasets'
+        cwd=os.getcwd()
         self.mode=mode
 
         gts_path=os.path.join(cwd,'data','Monu_Seg','archive','kmms_test','kmms_test','masks')

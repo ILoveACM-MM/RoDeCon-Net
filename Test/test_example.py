@@ -5,16 +5,15 @@ import datetime
 import numpy as np
 import torch
 from utils.utils import print_and_save, epoch_time,get_transform,my_seeding
-from network.model import Net
+from network.model import RoDeConNet
 from utils.metrics import DiceBCELoss
 torch.backends.cudnn.benchmark = True
 torch.backends.cudnn.deterministic = False
 from utils.run_train_vail import train, evaluate
-import sys
 import argparse
-sys.path.append(os.getcwd())
 from utils.utils import calculate_params_flops
 from dataset.loader import get_loader
+
 
 
 def parse_args():
@@ -22,7 +21,7 @@ def parse_args():
     parser.add_argument(
         "--datasets",
         type=str,
-        default="COVID_19",
+        default="Monu_Seg",
         help="input datasets name including ISIC2018, PH2, Kvasir, BUSI, COVID_19,CVC_ClinkDB,Monu_Seg",
     )
     parser.add_argument(
@@ -70,7 +69,7 @@ def parse_args():
     parser.add_argument(
         "--out_channels",
         type=list,
-        default=[10,20,30,40],
+        default=[64, 256, 512, 1024],
         help="out_channels",
     )
     parser.add_argument(
@@ -82,8 +81,20 @@ def parse_args():
     parser.add_argument(
         "--esp",
         type=int,
-        default=100,
+        default=200,
         help="out_channels",
+    )
+    parser.add_argument(
+        "--window_config",
+        type=list,
+        default=[3,1,1],
+        help="window_config=[window size, window padding, window stride]",
+    )
+    parser.add_argument(
+        "--align_dim",
+        type=int,
+        default=128,
+        help="align_dim",
     )
     return parser.parse_args()
 
@@ -142,7 +153,7 @@ if __name__ == "__main__":
     
     """ Model """
     device = torch.device(f'cuda:{args.gpu}')
-    model = Net()
+    model = RoDeConNet(in_channels=args.out_channels,scale=[1,2,4,8],final_channel=args.align_dim,window_size=args.window_config[0], window_padding=args.window_config[1], window_stride=args.window_config[2])
     #continuing
     if pretrained_backbone:
         saved_weights = torch.load(pretrained_backbone)
@@ -163,7 +174,7 @@ if __name__ == "__main__":
         {'params': [], 'lr': lr_backbone},
         {'params': [], 'lr': lr}
     ]
-
+  
     for name, param in model.named_parameters():
         if name.startswith('backbone.layer0') or name.startswith('backbone.layer1') or name.startswith('backbone.layer2') or name.startswith('backbone.layer3'):
             param_groups[0]['params'].append(param)

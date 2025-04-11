@@ -1,18 +1,15 @@
 import os
-import random
 import time
 import datetime
 import numpy as np
 import torch
-from utils.utils import print_and_save, epoch_time,get_transform,my_seeding
+from utils.utils import print_and_save, epoch_time,my_seeding
 from network.model import RoDeConNet
 from utils.metrics import DiceBCELoss
 torch.backends.cudnn.benchmark = True
 torch.backends.cudnn.deterministic = False
 from utils.run_train_vail import train, evaluate
-import sys
 import argparse
-sys.path.append(os.getcwd())
 from utils.utils import calculate_params_flops
 from dataset.loader import get_loader
 
@@ -23,7 +20,7 @@ def parse_args():
     parser.add_argument(
         "--datasets",
         type=str,
-        default="Monu_Seg",
+        default="BUSI",
         help="input datasets name including ISIC2018, PH2, Kvasir, BUSI, COVID_19,CVC_ClinkDB,Monu_Seg",
     )
     parser.add_argument(
