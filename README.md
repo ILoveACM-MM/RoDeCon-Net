@@ -100,4 +100,4 @@ Performance comparison with ten SOTA methods on ISIC2018, Kvasir, BUSI, COVID-19
 
 ## 🎫 License
 
-The content of this project itself is licensed under [LICENSE](https://github.com/ILoveACM-MM/Network/blob/main/LICENSE).
+The content of this project itself is licensed under [LICENSE](https://github.com/ILoveACM-MM/RoDeCon-Net?tab=Apache-2.0-1-ov-file).
