@@ -164,7 +164,7 @@ if __name__ == "__main__":
         {'params': [], 'lr': lr_backbone},
         {'params': [], 'lr': lr}
     ]
-
+  
     for name, param in model.named_parameters():
         if name.startswith('backbone.layer0') or name.startswith('backbone.layer1') or name.startswith('backbone.layer2') or name.startswith('backbone.layer3'):
             param_groups[0]['params'].append(param)
