@@ -5,7 +5,7 @@ import datetime
 import numpy as np
 import torch
 from utils.utils import print_and_save, epoch_time,get_transform,my_seeding
-from network.model import Net
+from network.model import RoDeConNet
 from utils.metrics import DiceBCELoss
 torch.backends.cudnn.benchmark = True
 torch.backends.cudnn.deterministic = False
@@ -71,7 +71,7 @@ def parse_args():
     parser.add_argument(
         "--out_channels",
         type=list,
-        default=[10,20,30,40],
+        default=[64, 256, 512, 1024],
         help="out_channels",
     )
     parser.add_argument(
@@ -83,8 +83,20 @@ def parse_args():
     parser.add_argument(
         "--esp",
         type=int,
-        default=100,
+        default=200,
         help="out_channels",
+    )
+    parser.add_argument(
+        "--window_config",
+        type=list,
+        default=[3,1,1],
+        help="window_config=[window size, window padding, window stride]",
+    )
+    parser.add_argument(
+        "--align_dim",
+        type=int,
+        default=128,
+        help="align_dim",
     )
     return parser.parse_args()
 
@@ -143,7 +155,7 @@ if __name__ == "__main__":
     
     """ Model """
     device = torch.device(f'cuda:{args.gpu}')
-    model = Net()
+    model = RoDeConNet(in_channels=args.out_channels,scale=[1,2,4,8],final_channel=args.align_dim,window_size=args.window_config[0], window_padding=args.window_config[1], window_stride=args.window_config[2])
     #continuing
     if pretrained_backbone:
         saved_weights = torch.load(pretrained_backbone)

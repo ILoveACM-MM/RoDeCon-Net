@@ -5,7 +5,7 @@ import datetime
 import numpy as np
 import torch
 from utils.utils import print_and_save, epoch_time,get_transform,my_seeding
-from network.model import ConDSeg
+from network.model import RoDeConNet
 from utils.metrics import DiceBCELoss
 torch.backends.cudnn.benchmark = True
 torch.backends.cudnn.deterministic = False
@@ -17,12 +17,13 @@ from utils.utils import calculate_params_flops
 from dataset.loader import get_loader
 
 
+
 def parse_args():
     parser = argparse.ArgumentParser()
     parser.add_argument(
         "--datasets",
         type=str,
-        default="COVID_19",
+        default="Monu_Seg",
         help="input datasets name including ISIC2018, PH2, Kvasir, BUSI, COVID_19,CVC_ClinkDB,Monu_Seg",
     )
     parser.add_argument(
@@ -64,13 +65,13 @@ def parse_args():
     parser.add_argument(
         "--epoch",
         type=int,
-        default=200,
+        default=1,
         help="end epoch",
     )
     parser.add_argument(
         "--out_channels",
         type=list,
-        default=[10,20,30,40],
+        default=[64, 256, 512, 1024],
         help="out_channels",
     )
     parser.add_argument(
@@ -82,8 +83,20 @@ def parse_args():
     parser.add_argument(
         "--esp",
         type=int,
-        default=100,
+        default=200,
         help="out_channels",
+    )
+    parser.add_argument(
+        "--window_config",
+        type=list,
+        default=[3,1,1],
+        help="window_config=[window size, window padding, window stride]",
+    )
+    parser.add_argument(
+        "--align_dim",
+        type=int,
+        default=128,
+        help="align_dim",
     )
     return parser.parse_args()
 
@@ -116,7 +129,7 @@ if __name__ == "__main__":
     folder_name = f"{dataset_name}_{current_time}"
 
     # Directories
-    save_dir = os.path.join("Test","run_files_ISIC", folder_name)
+    save_dir = os.path.join(args.log, folder_name)
     if not os.path.exists(save_dir):
         os.makedirs(save_dir)
 
@@ -138,11 +151,11 @@ if __name__ == "__main__":
 
     
     """ Dataset and loader """
-    _, valid_loader = get_loader(dataset_name, batch_size, image_size, train_log_path)
+    train_loader, valid_loader = get_loader(dataset_name, batch_size, image_size, train_log_path)
     
     """ Model """
     device = torch.device(f'cuda:{args.gpu}')
-    model = ConDSeg()
+    model = RoDeConNet(in_channels=args.out_channels,scale=[1,2,4,8],final_channel=args.align_dim,window_size=args.window_config[0], window_padding=args.window_config[1], window_stride=args.window_config[2])
     #continuing
     if pretrained_backbone:
         saved_weights = torch.load(pretrained_backbone)
@@ -163,9 +176,8 @@ if __name__ == "__main__":
         {'params': [], 'lr': lr_backbone},
         {'params': [], 'lr': lr}
     ]
-
+  
     for name, param in model.named_parameters():
-        print(name, param.requires_grad)
         if name.startswith('backbone.layer0') or name.startswith('backbone.layer1') or name.startswith('backbone.layer2') or name.startswith('backbone.layer3'):
             param_groups[0]['params'].append(param)
         else:
@@ -186,6 +198,7 @@ if __name__ == "__main__":
     print_and_save(train_log_path, data_str)
 
     """ Training the model """
+
     best_valid_metrics = 0.0
     early_stopping_count = 0
 
@@ -193,5 +206,4 @@ if __name__ == "__main__":
         start_time = time.time()
 
         valid_loss, valid_metrics = evaluate(model, valid_loader, loss_fn, device)
-        data_str += f"\t Val. Loss: {valid_loss:.4f} - miou:{valid_metrics[0]},dsc:{valid_metrics[1]},acc:{valid_metrics[2]},sen:{valid_metrics[3]},spe:{valid_metrics[4]},pre:{valid_metrics[5]},rec:{valid_metrics[6]},fb:{valid_metrics[7]},em:{valid_metrics[8]}\n"
-        print_and_save(train_log_path, data_str)
+   

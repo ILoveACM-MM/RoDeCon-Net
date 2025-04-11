@@ -276,9 +276,6 @@ class ContrastDrivenFeatureAlignment(nn.Module):
     
     def forward_optimize_fb(self,x_unfolded,f_unfolded,b_unfolded):
         #window conv
-        # x_unfolded=self.window_conv_x(x_unfolded)
-        # f_unfolded=self.window_conv_f(f_unfolded)
-        # b_unfolded=self.window_conv_b(b_unfolded)
         #optimizing foreground
         f_x=x_unfolded*f_unfolded
         #suppressing background
@@ -287,10 +284,6 @@ class ContrastDrivenFeatureAlignment(nn.Module):
         
     def forward_compute_attention(self,f_x,b_x,x_unfolded,f_unfolded,b_unfolded):
         #calculating foreground and background window attention
-        # window_sum_f = f_x.sum(dim=(-2, -1), keepdim=True)
-        # window_sum_b = b_x.sum(dim=(-2, -1), keepdim=True)
-        # attn_f_x = f_x / window_sum_f
-        # attn_b_x = b_x / window_sum_b
         attn_f_x=f_x.softmax(dim=-1)
         attn_b_x=b_x.softmax(dim=-1)
         #calculating comprehensive window attention
@@ -570,7 +563,7 @@ class Backbone_PVT(nn.Module):
         return x1, x2, x3, x4
 
 
-class Net(nn.Module):
+class RoDeConNet(nn.Module):
     def __init__(self,in_channels=[64, 256, 512, 1024],scale=[1,2,4,8],final_channel=128,window_size=3, window_padding=1, window_stride=1):
         super().__init__()
         """
@@ -623,7 +616,7 @@ class Net(nn.Module):
 
 if __name__ == "__main__":
     #initialize the model
-    model = Net().cuda()
+    model = RoDeConNet().cuda()
     #generate random input tensor
     input_tensor = torch.randn(1, 3, 256, 256).cuda()
     #reference the model

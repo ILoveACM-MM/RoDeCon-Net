@@ -58,7 +58,7 @@ def train(model, loader, optimizer, loss_fn, device):
 
         loss_comp = complementary_loss(prob_fg, prob_bg, prob_uc)
         loss_comp = loss_comp.to(device)
-        loss = loss_mask + beta1*loss_fg + beta2 *loss_bg +  loss_comp
+        loss = loss_mask + beta1*loss_fg + beta2 *loss_bg +  beta3*loss_comp
         loss.backward()
 
         optimizer.step()
@@ -148,20 +148,8 @@ def evaluate(model, loader, loss_fn, device):
 
             loss_comp = complementary_loss(prob_fg, prob_bg, prob_uc)
             loss_comp = loss_comp.to(device)
-            loss = loss_mask + beta1*loss_fg + beta2 *loss_bg +  loss_comp
+            loss = loss_mask + beta1*loss_fg + beta2 *loss_bg +  beta3*loss_comp
 
-            # from torchvision.utils import save_image
-            # # 将 mask_pred 二值化
-            # mask_pred_binary = (mask_pred >= 0.5).float()  # 大于等于 0.5 为 1，小于 0.5 为 0
-
-            # # 保存二值化的 mask_pred 图像
-            # mask_pred_binary_cpu = mask_pred_binary.cpu()  # 将张量移动到 CPU
-            # save_image(mask_pred_binary_cpu, os.path.join('/home/xyq/mye/ConDSeg_ISIC_Test/figures', f"mask_pred_{i}.png"))  # 保存图片
-            
-            # loss_comp = complementary_loss(prob_fg, prob_bg, prob_uc)
-            # loss_comp = loss_comp.to(device)
-
-            # loss = loss_mask + beta1 * loss_fg + beta2 * loss_bg + loss_comp
 
             epoch_loss += loss.item()
 
