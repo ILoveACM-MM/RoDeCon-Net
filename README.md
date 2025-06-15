@@ -101,7 +101,7 @@ Performance comparison with ten SOTA methods on ISIC2018, Kvasir, BUSI, COVID-19
 ## 🖼️ Ablation Studies
 
 <div align="center">
-<img width="800" alt="image" src="figures/aba.png?raw=true">
+<img width="800" alt="image" src="figures/aba1.png?raw=true">
 </div>
 
 <div align="center">
