@@ -98,6 +98,26 @@ We compare our method against 13 state-of-the-art methods. The red box indicates
 Performance comparison with ten SOTA methods on ISIC2018, Kvasir, BUSI, COVID-19 and Monu-Seg datasets.
 </div>
 
+## 🖼️ Ablation Studies
+
+<div align="center">
+<img width="800" alt="image" src="figures/aba.png?raw=true">
+</div>
+
+<div align="center">
+We conducted ablation experiments on five datasets. Specifically, B1, B2, and B3 denote the foreground, background, and uncertainty branches, respectively. FA stands for forward attention.
+</div>
+
+## 🖼️ Ablation Studies
+
+<div align="center">
+<img width="800" alt="image" src="figures/curve.png?raw=true">
+</div>
+
+<div align="center">
+We evaluated the effects of the loss functions \(\mathcal{L}_f\), \(\mathcal{L}_b\), and \(\mathcal{L}_u\) on the stability of the model. F, B, and U denote \(\mathcal{L}_f\), \(\mathcal{L}_b\), and \(\mathcal{L}_u\), respectively.
+</div>
+
 ## 🎫 License
 
 The content of this project itself is licensed under [LICENSE](https://github.com/ILoveACM-MM/RoDeCon-Net?tab=Apache-2.0-1-ov-file).
