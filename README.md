@@ -108,7 +108,7 @@ Performance comparison with ten SOTA methods on ISIC2018, Kvasir, BUSI, COVID-19
 We conducted ablation experiments on five datasets. Specifically, B1, B2, and B3 denote the foreground, background, and uncertainty branches, respectively. FA stands for forward attention.
 </div>
 
-## 🖼️ Ablation Studies
+## 🖼️ The impact of $\lambda_f$, $\lambda_b$, and $\lambda_u$ on convergence stability.
 
 <div align="center">
 <img width="800" alt="image" src="figures/curve.png?raw=true">
