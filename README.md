@@ -115,7 +115,7 @@ We conducted ablation experiments on five datasets. Specifically, B1, B2, and B3
 </div>
 
 <div align="center">
-We evaluated the effects of the loss functions $\mathcal{L}_f$, $\mathcal{L}_b$, and $\mathcal{L}_u$ on the stability of the model. F, B, and U denote $\mathcal{L}_f$, $\mathcal{L}_b$, and $\mathcal{L}_u$, respectively.
+We evaluated the effects of the loss functions $\lambda_f$, $\lambda_b$, and $\lambda_u$ on the stability of the model. F, B, and U denote $\lambda_f$, $\lambda_b$, and $\lambda_u$, respectively.
 </div>
 
 ## 🎫 License
