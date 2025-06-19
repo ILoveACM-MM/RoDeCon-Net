@@ -1,5 +1,5 @@
 <div align="center">
-<h1> Rebuttal: RoDeCon-Net: Medical Image Segmentation via Robust Decoupling and Contrast-Enhanced Fusion </h1>
+<h1> RoDeCon-Net: Medical Image Segmentation via Robust Decoupling and Contrast-Enhanced Fusion </h1>
 </div>
 
 ## 🎈 News
