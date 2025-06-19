@@ -2,9 +2,15 @@
 <h1> Rebuttal: RoDeCon-Net: Medical Image Segmentation via Robust Decoupling and Contrast-Enhanced Fusion </h1>
 </div>
 
-## 🎈 We are currently rebuttal.
+## 🎈 News
 
-## 🖼️ Ablation Studies
+[2025-6-16] We are conducting rebuttal.
+
+[2025.3.1] Training and testing code released.
+
+# ⭐ Rebuttal
+
+## 🖼️ Ablation Visualization (Response Reviewer bjZa, Question 2)
 
 <div align="center">
 <img width="800" alt="image" src="figures/aba1.png?raw=true">
@@ -14,7 +20,7 @@
 We conducted ablation experiments on five datasets. Specifically, B1, B2, and B3 denote the foreground, background, and uncertainty branches, respectively. FA stands for forward attention.
 </div>
 
-## 🖼️ Convergence stability.
+## 🖼️ Convergence Analysis (Response Reviewer zJsc, Question 3)
 
 <div align="center">
 <img width="800" alt="image" src="figures/curve.png?raw=true">
