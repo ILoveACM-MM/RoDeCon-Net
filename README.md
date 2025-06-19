@@ -10,13 +10,13 @@
 
 # ⭐ Rebuttal
 
-## 🖼️ Ablation Visualization (Response to Reviewer bjZa, Question 2)
+## 🖼️ Visualization of Ablation Results (Response to Reviewer bjZa, Question 2)
 
 <div align="center">
 <img width="800" alt="image" src="figures/aba1.png?raw=true">
 </div>
 
-**Rebuttal:** We conducted ablation experiments on five datasets. Specifically, B1, B2, and B3 denote the foreground, background, and uncertainty branches, respectively. FA stands for forward attention.
+**Response:** We conducted ablation experiments on five datasets. Specifically, B1, B2, and B3 denote the foreground, background, and uncertainty branches, respectively. FA stands for forward attention.
 
 
 ## 🖼️ Convergence Analysis (Response to Reviewer zJsc, Question 3)
@@ -25,7 +25,7 @@
 <img width="800" alt="image" src="figures/curve.png?raw=true">
 </div>
 
-**Rebuttal:** We evaluated the effects of the loss functions $\lambda_f$, $\lambda_b$, and $\lambda_u$ on the stability of the model. F, B, and U denote $\lambda_f$, $\lambda_b$, and $\lambda_u$, respectively.
+**Response:** We evaluated the effects of the loss functions $\lambda_f$, $\lambda_b$, and $\lambda_u$ on the stability of the model. F, B, and U denote $\lambda_f$, $\lambda_b$, and $\lambda_u$, respectively.
 
 
 
