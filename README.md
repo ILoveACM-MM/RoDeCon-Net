@@ -1,10 +1,28 @@
 <div align="center">
-<h1> RoDeCon-Net: Medical Image Segmentation via Robust Decoupling and Contrast-Enhanced Fusion </h1>
+<h1> Rebuttal: RoDeCon-Net: Medical Image Segmentation via Robust Decoupling and Contrast-Enhanced Fusion </h1>
 </div>
 
-## 🎈 News
+## 🎈 We are currently rebuttal.
 
-- [2025.2.19] Training and inference code released
+## 🖼️ Ablation Studies
+
+<div align="center">
+<img width="800" alt="image" src="figures/aba1.png?raw=true">
+</div>
+
+<div align="center">
+We conducted ablation experiments on five datasets. Specifically, B1, B2, and B3 denote the foreground, background, and uncertainty branches, respectively. FA stands for forward attention.
+</div>
+
+## 🖼️ Convergence stability.
+
+<div align="center">
+<img width="800" alt="image" src="figures/curve.png?raw=true">
+</div>
+
+We evaluated the effects of the loss functions $\lambda_f$, $\lambda_b$, and $\lambda_u$ on the stability of the model. F, B, and U denote $\lambda_f$, $\lambda_b$, and $\lambda_u$, respectively.
+
+
 
 ## ⭐ Abstract
 
@@ -97,24 +115,6 @@ We compare our method against 13 state-of-the-art methods. The red box indicates
 <div align="center">
 Performance comparison with ten SOTA methods on ISIC2018, Kvasir, BUSI, COVID-19 and Monu-Seg datasets.
 </div>
-
-## 🖼️ Ablation Studies
-
-<div align="center">
-<img width="800" alt="image" src="figures/aba1.png?raw=true">
-</div>
-
-<div align="center">
-We conducted ablation experiments on five datasets. Specifically, B1, B2, and B3 denote the foreground, background, and uncertainty branches, respectively. FA stands for forward attention.
-</div>
-
-## 🖼️ The impact of $\lambda_f$, $\lambda_b$, and $\lambda_u$ on convergence stability.
-
-<div align="center">
-<img width="800" alt="image" src="figures/curve.png?raw=true">
-</div>
-
-We evaluated the effects of the loss functions $\lambda_f$, $\lambda_b$, and $\lambda_u$ on the stability of the model. F, B, and U denote $\lambda_f$, $\lambda_b$, and $\lambda_u$, respectively.
 
 
 ## 🎫 License
