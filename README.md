@@ -4,7 +4,7 @@
 
 ## 🎈 News
 
-[2025.6.16] We are conducting rebuttal.
+[2025.6.16] ** We are conducting rebuttal ! **
 
 [2025.3.1] Training and testing code released.
 
@@ -17,7 +17,7 @@
 </div>
 
 <div align="center">
-We conducted ablation experiments on five datasets. Specifically, B1, B2, and B3 denote the foreground, background, and uncertainty branches, respectively. FA stands for forward attention.
+** Rebuttal:** We conducted ablation experiments on five datasets. Specifically, B1, B2, and B3 denote the foreground, background, and uncertainty branches, respectively. FA stands for forward attention.
 </div>
 
 ## 🖼️ Convergence Analysis (Response to Reviewer zJsc, Question 3)
@@ -26,7 +26,7 @@ We conducted ablation experiments on five datasets. Specifically, B1, B2, and B3
 <img width="800" alt="image" src="figures/curve.png?raw=true">
 </div>
 
-We evaluated the effects of the loss functions $\lambda_f$, $\lambda_b$, and $\lambda_u$ on the stability of the model. F, B, and U denote $\lambda_f$, $\lambda_b$, and $\lambda_u$, respectively.
+** Rebuttal:** We evaluated the effects of the loss functions $\lambda_f$, $\lambda_b$, and $\lambda_u$ on the stability of the model. F, B, and U denote $\lambda_f$, $\lambda_b$, and $\lambda_u$, respectively.
 
 
 
