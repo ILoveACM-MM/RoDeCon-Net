@@ -4,7 +4,7 @@
 
 ## 🎈 News
 
-[2025.6.16] <font color="red"> **We are conducting rebuttal <-- We are here !** </font>
+[2025.6.16] - **We are conducting rebuttal <-- We are here !**
 
 [2025.3.1] Training and testing code released.
 
