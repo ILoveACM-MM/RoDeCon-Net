@@ -17,7 +17,7 @@
 </div>
 
 <div align="center">
-** Rebuttal:** We conducted ablation experiments on five datasets. Specifically, B1, B2, and B3 denote the foreground, background, and uncertainty branches, respectively. FA stands for forward attention.
+**Rebuttal:** We conducted ablation experiments on five datasets. Specifically, B1, B2, and B3 denote the foreground, background, and uncertainty branches, respectively. FA stands for forward attention.
 </div>
 
 ## 🖼️ Convergence Analysis (Response to Reviewer zJsc, Question 3)
