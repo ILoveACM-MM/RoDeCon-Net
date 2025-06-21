@@ -13,7 +13,7 @@
 ## 🖼️ Visualization of Ablation Results (Response to Reviewer bjZa, Question 2)
 
 <div align="center">
-<img width="800" alt="image" src="figures/aba1.png?raw=true">
+<img width="800" alt="image" src="figures/aba.png?raw=true">
 </div>
 
 **Response:** We conducted ablation experiments on five datasets. Specifically, B1, B2, and B3 denote the foreground, background, and uncertainty branches, respectively. FA stands for forward attention.
