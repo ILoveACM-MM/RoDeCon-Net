@@ -16,7 +16,7 @@
 <img width="800" alt="image" src="figures/aba.png?raw=true">
 </div>
 
-**Response:** We conducted ablation experiments.
+**Response:** We conduct ablation experiments and present the intermediate visualizations of foreground, background, and uncertain regions from Stage I. Additionally, we provide the intermediate visualizations of the encoder from Stage I, as well as those from the CFAU and CFCU components.
 
 
 ## 🖼️ Convergence Analysis (Response to Reviewer zJsc, Question 3)
