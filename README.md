@@ -4,28 +4,11 @@
 
 ## 🎈 News
 
+[2025.7.11] **We are accepted <-- We are here !**
+
 [2025.6.16] **We are conducting rebuttal <-- We are here !**
 
 [2025.3.1] Training and testing code released.
-
-# ⭐ Rebuttal
-
-## 🖼️ Visualization of Ablation Results (Response to Reviewer bjZa, Question 2)
-
-<div align="center">
-<img width="800" alt="image" src="figures/aba.png?raw=true">
-</div>
-
-**Response:** We conduct ablation experiments and present the intermediate visualizations of foreground, background, and uncertain regions from Stage I. Additionally, we provide the intermediate visualizations of the encoder from Stage I, as well as those from the CFAU and CFCU components.
-
-
-## 🖼️ Convergence Analysis (Response to Reviewer zJsc, Question 3)
-
-<div align="center">
-<img width="800" alt="image" src="figures/curve.png?raw=true">
-</div>
-
-**Response:** We evaluated the effects of the loss functions $\lambda_f$, $\lambda_b$, and $\lambda_u$ on the stability of the model. F, B, and U denote $\lambda_f$, $\lambda_b$, and $\lambda_u$, respectively.
 
 
 
@@ -116,6 +99,26 @@ We compare our method against 13 state-of-the-art methods. The red box indicates
 <div align="center">
 <img width="800" alt="image" src="figures/com_tab.png?raw=true">
 </div>
+
+
+# ⭐ Rebuttal
+
+## 🖼️ Visualization of Ablation Results
+
+<div align="center">
+<img width="800" alt="image" src="figures/aba.png?raw=true">
+</div>
+
+**Response:** We conduct ablation experiments and present the intermediate visualizations of foreground, background, and uncertain regions from Stage I. Additionally, we provide the intermediate visualizations of the encoder from Stage I, as well as those from the CFAU and CFCU components.
+
+
+## 🖼️ Convergence Analysis
+
+<div align="center">
+<img width="800" alt="image" src="figures/curve.png?raw=true">
+</div>
+
+**Response:** We evaluated the effects of the loss functions $\lambda_f$, $\lambda_b$, and $\lambda_u$ on the stability of the model. F, B, and U denote $\lambda_f$, $\lambda_b$, and $\lambda_u$, respectively.
 
 <div align="center">
 Performance comparison with ten SOTA methods on ISIC2018, Kvasir, BUSI, COVID-19 and Monu-Seg datasets.
