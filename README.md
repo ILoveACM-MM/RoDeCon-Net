@@ -69,7 +69,7 @@ pre-training file is saved to ./log/dataset folder
 concrete information see train.py, please
 ```
 
-### 3. Test the RoMER-UNet
+### 3. Test the Net
 
 ```
 python test.py --datasets ISIC2018
