@@ -100,6 +100,9 @@ We compare our method against 13 state-of-the-art methods. The red box indicates
 <img width="800" alt="image" src="figures/com_tab.png?raw=true">
 </div>
 
+<div align="center">
+Performance comparison with ten SOTA methods on ISIC2018, Kvasir, BUSI, COVID-19 and Monu-Seg datasets.
+</div>
 
 # ⭐ Rebuttal
 
@@ -120,9 +123,6 @@ We compare our method against 13 state-of-the-art methods. The red box indicates
 
 **Response:** We evaluated the effects of the loss functions $\lambda_f$, $\lambda_b$, and $\lambda_u$ on the stability of the model. F, B, and U denote $\lambda_f$, $\lambda_b$, and $\lambda_u$, respectively.
 
-<div align="center">
-Performance comparison with ten SOTA methods on ISIC2018, Kvasir, BUSI, COVID-19 and Monu-Seg datasets.
-</div>
 
 
 ## 🎫 License
